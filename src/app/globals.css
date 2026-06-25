@@ -60,34 +60,34 @@
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ===== Light (Metro DS) ===== */
+/* ===== Light (Metro DS — values mirror metro-catalogs.vercel.app/design-system) ===== */
 :root {
-  --radius: 0.75rem;
+  --radius: 0.375rem;
+  --section-padding: clamp(3rem, 6vw, 6rem);
 
   --background: #f8f8f8;
-  --foreground: #141414;
+  --foreground: #262626;
   --card: #ffffff;
-  --card-foreground: #141414;
+  --card-foreground: #262626;
   --popover: #ffffff;
-  --popover-foreground: #141414;
+  --popover-foreground: #262626;
 
-  /* brand accent #ffcd05 -> primary (CTA / active), ink text on it */
-  --primary: #ffcd05;
-  --primary-foreground: #141414;
+  /* DS semantics: primary = ink (#141414), accent = brand yellow */
+  --primary: #141414;
+  --primary-foreground: #f8f8f8;
 
-  --secondary: #f2f2f2;
+  --secondary: #f0f0f0;
   --secondary-foreground: #141414;
-  --muted: #f2f2f2;
+  --muted: #ebebeb;
   --muted-foreground: #595959;
 
-  /* subtle surface accent for hovers — NOT the brand yellow */
-  --accent: #efefef;
+  --accent: #ffcd05;
   --accent-foreground: #141414;
 
   --destructive: #ef4444;
-  --border: #ebebeb;
-  --input: #ebebeb;
-  --ring: #ffcd05;
+  --border: #e6e6e6;
+  --input: #d6d6d6;
+  --ring: #141414;
 
   /* Metro extensions */
   --brand: #ffcd05;
@@ -100,7 +100,7 @@
   --info: #227bc3;
   --info-foreground: #ffffff;
   --warning: #ca8a04;
-  --warning-foreground: #ffffff;
+  --warning-foreground: #1a1a1a;
   --danger: #ef4444;
   --danger-foreground: #ffffff;
 
@@ -111,42 +111,43 @@
   --chart-5: #ef4444;
 }
 
-/* ===== Dark (Metro DS) ===== */
+/* ===== Dark (Metro DS — values mirror metro-catalogs.vercel.app/design-system .dark) ===== */
 .dark {
   --background: #0f131a;
   --foreground: #f5f3f0;
   --card: #181d25;
   --card-foreground: #f5f3f0;
-  --popover: #1d212b;
+  --popover: #181d25;
   --popover-foreground: #f5f3f0;
 
-  --primary: #ffcd05;
-  --primary-foreground: #141414;
+  /* DS semantics: primary = paper ink, accent = brand yellow */
+  --primary: #f5f3f0;
+  --primary-foreground: #212631;
 
-  --secondary: #161a22;
+  --secondary: #272c35;
   --secondary-foreground: #f5f3f0;
-  --muted: #161a22;
+  --muted: #272c35;
   --muted-foreground: #8f96a3;
 
-  --accent: #1d212b;
-  --accent-foreground: #f5f3f0;
+  --accent: #ffcd05;
+  --accent-foreground: #141414;
 
-  --destructive: #ef4444;
-  --border: #272c35;
-  --input: #272c35;
-  --ring: #ffcd05;
+  --destructive: #7f1d1d;
+  --border: #303541;
+  --input: #3d4452;
+  --ring: #ce853b;
 
   --brand: #ffcd05;
   --brand-foreground: #141414;
   --surface: #161a22;
   --surface-elevated: #1d212b;
 
-  --success: #4ea878;
-  --success-foreground: #08110b;
-  --info: #5aa9d6;
-  --info-foreground: #04121c;
+  --success: #318153;
+  --success-foreground: #ffffff;
+  --info: #227bc3;
+  --info-foreground: #ffffff;
   --warning: #f59e0b;
-  --warning-foreground: #1a1205;
+  --warning-foreground: #1a1a1a;
   --danger: #ef4444;
   --danger-foreground: #1a0606;
 

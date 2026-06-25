@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Lato, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({
+// METRO design system font — Lato (matches metro-catalogs.vercel.app/design-system)
+const lato = Lato({
   variable: "--font-sans",
   subsets: ["latin", "latin-ext"],
+  weight: ["300", "400", "700", "900"],
   display: "swap",
 });
 
@@ -32,13 +34,13 @@ export default function RootLayout({
     <html
       lang="pl"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${lato.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <TooltipProvider delay={150}>{children}</TooltipProvider>

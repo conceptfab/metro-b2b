@@ -23,7 +23,6 @@ import {
 } from "@/components/ui/dialog";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useBriefStore } from "@/lib/brief/store";
-import { StepProject } from "./step-project";
 import { StepVariant } from "./step-variant";
 import { StepMatrix } from "./step-matrix";
 import { StepIntegrations } from "./step-integrations";
@@ -40,45 +39,38 @@ interface StepDef {
 
 const STEPS: StepDef[] = [
   {
-    id: "project",
-    short: "Projekt",
-    title: "Dane projektu",
-    eyebrow: "Krok 1 z 6",
-    Component: StepProject,
-  },
-  {
     id: "variant",
     short: "Wariant",
     title: "Wybór wariantu bazowego",
-    eyebrow: "Krok 2 z 6",
+    eyebrow: "Krok 1 z 5",
     Component: StepVariant,
   },
   {
     id: "matrix",
     short: "Funkcje",
     title: "Macierz funkcji",
-    eyebrow: "Krok 3 z 6",
+    eyebrow: "Krok 2 z 5",
     Component: StepMatrix,
   },
   {
     id: "integrations",
     short: "Integracje",
     title: "Integracje",
-    eyebrow: "Krok 4 z 6",
+    eyebrow: "Krok 3 z 5",
     Component: StepIntegrations,
   },
   {
     id: "decisions",
     short: "Decyzje",
     title: "Decyzje Zarządu",
-    eyebrow: "Krok 5 z 6",
+    eyebrow: "Krok 4 z 5",
     Component: StepDecisions,
   },
   {
     id: "summary",
     short: "Podsumowanie",
     title: "Podsumowanie i eksport",
-    eyebrow: "Krok 6 z 6",
+    eyebrow: "Krok 5 z 5",
     Component: StepSummary,
   },
 ];

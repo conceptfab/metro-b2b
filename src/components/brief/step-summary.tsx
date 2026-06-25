@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { LEVEL_LABEL } from "@/lib/brief/data";
 import { downloadBriefPdf } from "@/lib/brief/pdf/export";
 import { resolveBrief } from "@/lib/brief/selectors";
+import { useShallow } from "zustand/react/shallow";
 import { useBriefStore } from "@/lib/brief/store";
 import type { BriefState, Level } from "@/lib/brief/types";
 
@@ -33,18 +34,22 @@ function StatRow({ label, value }: { label: string; value: React.ReactNode }) {
 export function StepSummary() {
   const generalNotes = useBriefStore((s) => s.generalNotes);
   const setGeneralNotes = useBriefStore((s) => s.setGeneralNotes);
-  // pełny stan do PDF (subskrybujemy całość — to ostatni krok)
+  // pełny stan do PDF (subskrybujemy całość — to ostatni krok).
+  // useShallow jest wymagany: bez niego selektor zwraca nowy obiekt przy każdym
+  // renderze, co w Zustand v5 powoduje pętlę "Maximum update depth exceeded".
   const state = useBriefStore(
-    (s): BriefState => ({
-      project: s.project,
-      variant: s.variant,
-      features: s.features,
-      integrations: s.integrations,
-      existingServices: s.existingServices,
-      decisions: s.decisions,
-      generalNotes: s.generalNotes,
-      audienceFilter: s.audienceFilter,
-    }),
+    useShallow(
+      (s): BriefState => ({
+        project: s.project,
+        variant: s.variant,
+        features: s.features,
+        integrations: s.integrations,
+        existingServices: s.existingServices,
+        decisions: s.decisions,
+        generalNotes: s.generalNotes,
+        audienceFilter: s.audienceFilter,
+      }),
+    ),
   );
 
   const brief = React.useMemo(() => resolveBrief(state), [state]);
