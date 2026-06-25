@@ -446,14 +446,10 @@ export function BriefDocument({ brief, project, generalNotes }: PdfProps) {
           ))}
         </View>
 
-        {/* Decyzje Zarządu */}
-        <View style={s.section}>
-          <SectionHeader
-            eyebrow="Do rozstrzygnięcia"
-            title="Decyzje Zarządu"
-          />
-          {brief.decisions.length ? (
-            brief.decisions.map((d) => (
+        {/* Decyzje Zarządu — render tylko odpowiedzi (bez nagłówka i pustego stanu) */}
+        {brief.decisions.length ? (
+          <View style={s.section}>
+            {brief.decisions.map((d) => (
               <View key={d.num} style={s.decRow} wrap={false}>
                 <Text style={s.decNum}>{d.num}</Text>
                 <View style={{ flex: 1 }}>
@@ -464,13 +460,9 @@ export function BriefDocument({ brief, project, generalNotes }: PdfProps) {
                   {d.answer ? <Text style={s.decA}>{d.answer}</Text> : null}
                 </View>
               </View>
-            ))
-          ) : (
-            <Text style={{ color: MUTED, fontSize: 9 }}>
-              Brak udzielonych odpowiedzi.
-            </Text>
-          )}
-        </View>
+            ))}
+          </View>
+        ) : null}
 
         {/* Uwagi ogólne */}
         {generalNotes.trim() ? (

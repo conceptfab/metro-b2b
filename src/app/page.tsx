@@ -15,11 +15,6 @@ export default function Home() {
         <h1 className="text-4xl font-black tracking-tighter sm:text-5xl">
           Strefa B2B — konfiguracja zakresu
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-pretty text-muted-foreground">
-          Interaktywny formularz dla Zarządu i product ownera. Wybierz wariant,
-          zaznacz funkcje i integracje, rozstrzygnij decyzje — a na końcu
-          wygeneruj gotowy <strong>brief PDF</strong> dla software house.
-        </p>
         <div className="mt-8">
           <Button
             size="lg"
